@@ -13,3 +13,4 @@
 /noche-parent/noche-server/logs
 /noche-parent/wss-client/.gwt
 /.idea/
+noche-server/target/
