@@ -1,0 +1,15 @@
+/noche-parent/.idea
+*.iml
+*.log
+**/thimbs.db
+/noche-parent/.settings
+/noche-parent/.project
+/noche-parent/target
+/noche-parent/out
+/noche-parent/noche-server/target
+/noche-parent/noche-server/.classpath
+/noche-parent/noche-server/.project
+/noche-parent/noche-server/.settings
+/noche-parent/noche-server/logs
+/noche-parent/wss-client/.gwt
+/.idea/
