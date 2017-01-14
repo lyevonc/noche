@@ -13,9 +13,21 @@
         <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
     </context-param>
 
+
+
     <servlet>
         <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>
+                org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>org.noche.utils.AppConfig</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     
@@ -24,16 +36,25 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!--<context-param>-->
-        <!--<param-name>contextConfigLocation</param-name>-->
-        <!--<param-value>WEB-INF/spring-servlet.xml</param-value>-->
-    <!--</context-param>-->
-    
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-    <listener>
-        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-    </listener>
+    <!---->
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>-->
+    <!--</listener>-->
 
 </web-app>
+
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+
+        <!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+        <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+        <!--xmlns:jpa="http://www.springframework.org/schema/data/jpa"-->
+        <!--xsi:schemaLocation="-->
+        <!--http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd-->
+        <!--http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">-->
+
+        <!--<jpa:repositories base-package="org.noche.persistence" />-->
+
+        <!--</beans>-->
