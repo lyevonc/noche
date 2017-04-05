@@ -29,4 +29,9 @@ public class PlaceServiceImpl implements PlaceService {
     public void savePlace(Place place) {
         placeRepository.save(place);
     }
+
+    @Override
+    public Place findByPlaceName(String name) {
+        return placeRepository.findByName(name);
+    }
 }

@@ -35,8 +35,8 @@ public class PlaceController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.GET)
-    public void savePlace2(@RequestParam(value = "name") String name2) {
-        Place place = new Place(name2);
+    public void savePlace2(@RequestParam(value = "name") String name) {
+        Place place = new Place(name);
         placeService.savePlace(place);
     }
 
@@ -44,6 +44,12 @@ public class PlaceController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public void savePlace3(@RequestBody Place place) {
         placeService.savePlace(place);
+    }
+
+    @RequestMapping(value = "/findByName", method = RequestMethod.GET)
+    public void findPlaceByName(@RequestParam(value = "name") String name) {
+        Place place = placeService.findByPlaceName(name);
+        System.out.println(place.getName());
     }
 
 

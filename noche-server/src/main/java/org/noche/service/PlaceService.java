@@ -8,4 +8,6 @@ import org.noche.model.places.Place;
 public interface PlaceService {
 
     void savePlace(Place place);
+
+    Place findByPlaceName(String name);
 }

@@ -1,10 +1,9 @@
 package org.noche.model.places;
 
 import org.noche.model.LiteAbstractEntity;
+import org.noche.model.trends.Rank;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Timi on 1/14/2017.
@@ -21,6 +20,30 @@ public class Place extends LiteAbstractEntity {
 
     @Column(name = "name")
     private String name;
+
+    // TODO figure this out
+//    private int freeSeats;
+
+    @OneToOne
+    @Column(name = "location")
+    private Location location;
+
+    @Column(name = "openingHours")
+    private String openingHours;
+
+    @Column(name = "url")
+    private String url;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "rank")
+    @Enumerated(EnumType.STRING)
+    private Rank rank;
+
+//    @Column(name = "review")
+//    @OneToMany
+//    private List<Review> review;
 
     /* --- Constructor --- */
 
@@ -39,5 +62,45 @@ public class Place extends LiteAbstractEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public String getOpeningHours() {
+        return openingHours;
+    }
+
+    public void setOpeningHours(String openingHours) {
+        this.openingHours = openingHours;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Rank getRank() {
+        return rank;
+    }
+
+    public void setRank(Rank rank) {
+        this.rank = rank;
     }
 }
