@@ -11,7 +11,7 @@ import javax.persistence.Table;
  */
 @Entity(name = "Bar")
 @Table(name = "noche_bar")
-public class Bar extends LiteAbstractEntity {
+public class Bar extends Place {
 
     /* --- Static members --- */
 
