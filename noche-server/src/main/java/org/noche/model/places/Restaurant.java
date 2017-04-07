@@ -1,5 +1,6 @@
 package org.noche.model.places;
 
+import org.noche.model.LiteAbstractEntity;
 import org.noche.model.trends.RestaurantType;
 
 import javax.persistence.Column;
@@ -9,7 +10,7 @@ import javax.persistence.Enumerated;
 /**
  * Created by Timi on 4/5/2017.
  */
-public class Restaurant extends Place {
+public class Restaurant extends LiteAbstractEntity {
 
     /* --- Members --- */
 

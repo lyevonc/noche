@@ -1,11 +1,19 @@
 package org.noche.api;
 
+import dto.LocationInfo;
+import dto.PlaceInfo;
 import org.noche.model.places.Place;
 import org.noche.service.PlaceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Timi on 1/14/2017.
@@ -47,9 +55,18 @@ public class PlaceController {
     }
 
     @RequestMapping(value = "/findByName", method = RequestMethod.GET)
-    public void findPlaceByName(@RequestParam(value = "name") String name) {
+    public PlaceInfo findPlaceByName(@RequestParam(value = "name") String name) {
         Place place = placeService.findByName(name);
         System.out.println(place.getName());
+        return place.getInfo();
+    }
+
+    @RequestMapping(value = "/findPlacesByLocation", method = RequestMethod.POST)
+    public Collection<PlaceInfo> findPlacesByLocation(@RequestBody LocationInfo locationInfo) {
+        Collection<PlaceInfo> infos = new ArrayList<>();
+        List<Place> places = placeService.findAllPlacesByCity(locationInfo.getCity());
+        infos.addAll(places.stream().map(Place::getInfo).collect(Collectors.toList()));
+        return infos;
     }
 
 

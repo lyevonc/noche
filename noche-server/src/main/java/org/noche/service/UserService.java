@@ -7,6 +7,8 @@ import org.noche.model.users.User;
  */
 public interface UserService {
 
+    void createUser(String name, String email);
+
     User findByName(String name);
     User findByEmail(String email);
 }

@@ -1,5 +1,6 @@
 package org.noche.model.places;
 
+import dto.PlaceInfo;
 import org.noche.model.LiteAbstractEntity;
 import org.noche.model.trends.Rank;
 
@@ -24,8 +25,9 @@ public class Place extends LiteAbstractEntity {
     // TODO figure this out
 //    private int freeSeats;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @Column(name = "location")
+    @JoinColumn(name = "locationId") // TODO check this
     private Location location;
 
     @Column(name = "openingHours")
@@ -56,6 +58,15 @@ public class Place extends LiteAbstractEntity {
 
     /* --- Public methods --- */
 
+    public PlaceInfo getInfo() {
+        PlaceInfo info = new PlaceInfo();
+//        info.setLocationInfo();
+        info.setName(name);
+        info.setOpeningHours(openingHours);
+        info.setPhone(phone);
+        info.setUrl(url);
+        return info;
+    }
 
     /* --- Getters/Setters --- */
 

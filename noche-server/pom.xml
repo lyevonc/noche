@@ -26,7 +26,16 @@
     <packaging>war</packaging>
 
     <dependencies>
+        <!-- Noche -->
+
+        <dependency>
+            <groupId>org.noche</groupId>
+            <artifactId>noche-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!--Spring framework-->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>

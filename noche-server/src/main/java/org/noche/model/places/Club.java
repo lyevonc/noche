@@ -1,5 +1,7 @@
 package org.noche.model.places;
 
+import org.noche.model.LiteAbstractEntity;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -8,7 +10,7 @@ import javax.persistence.Table;
  */
 @Entity(name = "Club")
 @Table(name = "noche_club")
-public class Club extends Place {
+public class Club extends LiteAbstractEntity {
 
     /* --- Members --- */
 

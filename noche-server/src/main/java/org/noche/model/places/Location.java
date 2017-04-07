@@ -1,15 +1,23 @@
 package org.noche.model.places;
 
+import dto.LocationInfo;
 import org.noche.model.LiteAbstractEntity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Created by Timi on 4/5/2017.
  */
 @Entity(name = "Location")
-@Table(name = "noche_location")
+@Table(name = "noche_location", uniqueConstraints = @UniqueConstraint(columnNames = {"lat", "lon"}))
 public class Location extends LiteAbstractEntity {
+
+    /* --- Static members --- */
+
+    private static final long serialVersionUID = -214344520439449855L;
 
     /* --- Members --- */
 
@@ -19,6 +27,9 @@ public class Location extends LiteAbstractEntity {
     @Column(name = "lon")
     private double lon;
 
+    @Column(name = "city")
+    private String city;
+
     /* --- Constructor --- */
 
     public Location() {
@@ -27,6 +38,16 @@ public class Location extends LiteAbstractEntity {
     public Location(double lat, double lon) {
         this.lat = lat;
         this.lon = lon;
+    }
+
+    /* --- Public methods --- */
+
+    public LocationInfo getInfo() {
+        LocationInfo info = new LocationInfo();
+        info.setCity(city);
+        info.setLat(lat);
+        info.setLon(lon);
+        return info;
     }
 
     /* --- Getters/Setters --- */
@@ -45,5 +66,13 @@ public class Location extends LiteAbstractEntity {
 
     public void setLon(double lon) {
         this.lon = lon;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }
