@@ -1,7 +1,7 @@
 package org.noche.model.places;
 
 import org.noche.model.LiteAbstractEntity;
-import org.noche.model.trends.Line;
+import dto.Line;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

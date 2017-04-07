@@ -27,7 +27,7 @@ public class PlaceController {
 
     /* --- Static members --- */
 
-    private static final Logger logger = LoggerFactory.getLogger(PlaceController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PlaceController.class);
 
     /* --- Members --- */
 

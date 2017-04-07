@@ -1,5 +1,7 @@
 package org.noche.model.users;
 
+import dto.Gender;
+import dto.UserInfo;
 import org.noche.model.LiteAbstractEntity;
 
 import javax.persistence.*;
@@ -26,6 +28,10 @@ public class User extends LiteAbstractEntity {
     @Column(name = "age")
     private int age;
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "credentialsId")
+    private UserCredentials credentials;
+
     // TODO favorite places
 
     /* --- Constructor --- */
@@ -38,6 +44,17 @@ public class User extends LiteAbstractEntity {
         this.email = email;
         this.gender = gender;
         this.age = age;
+    }
+
+    /* --- Public methods --- */
+
+    public UserInfo getInfo() {
+        UserInfo info = new UserInfo();
+        info.setName(name);
+        info.setAge(age);
+        info.setEmail(email);
+        info.setGender(gender);
+        return info;
     }
 
     /* --- Getters/Setters --- */
@@ -72,5 +89,13 @@ public class User extends LiteAbstractEntity {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public UserCredentials getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(UserCredentials credentials) {
+        this.credentials = credentials;
     }
 }

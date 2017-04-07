@@ -2,7 +2,7 @@ package org.noche.model.places;
 
 import dto.PlaceInfo;
 import org.noche.model.LiteAbstractEntity;
-import org.noche.model.trends.Rank;
+import dto.Rank;
 
 import javax.persistence.*;
 

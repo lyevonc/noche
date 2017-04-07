@@ -21,7 +21,7 @@ public class UsageLog extends LiteAbstractEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @Column
+    @Column(name = "location")
     private String location;
 
     /* --- Constructor --- */

@@ -16,4 +16,5 @@ public interface PlaceService {
 
     List<Place> findAllPlacesByLocation(Location location);
     List<Place> findAllPlacesByCity(String city);
+
 }

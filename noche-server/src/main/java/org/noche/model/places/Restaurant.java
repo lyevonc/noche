@@ -1,7 +1,7 @@
 package org.noche.model.places;
 
 import org.noche.model.LiteAbstractEntity;
-import org.noche.model.trends.RestaurantType;
+import dto.RestaurantType;
 
 import javax.persistence.Column;
 import javax.persistence.EnumType;
