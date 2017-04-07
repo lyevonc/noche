@@ -3,8 +3,7 @@ package org.noche.model.places;
 import org.noche.model.LiteAbstractEntity;
 import org.noche.model.trends.Line;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Timi on 4/1/2017.
@@ -19,6 +18,8 @@ public class Bar extends LiteAbstractEntity {
 
     /* --- Private members --- */
 
+    @Column(name = "line")
+    @Enumerated(EnumType.STRING)
     private Line line;
 
     /* --- Constructor --- */

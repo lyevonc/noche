@@ -2,6 +2,7 @@ package org.noche.model.places;
 
 import org.noche.model.LiteAbstractEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -14,6 +15,7 @@ public class Club extends LiteAbstractEntity {
 
     /* --- Members --- */
 
+    @Column(name = "dj")
     private String dj;
 
     /* --- Constructor --- */

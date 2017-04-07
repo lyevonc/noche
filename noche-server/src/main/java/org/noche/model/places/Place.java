@@ -25,10 +25,10 @@ public class Place extends LiteAbstractEntity {
     // TODO figure this out
 //    private int freeSeats;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @Column(name = "location")
-    @JoinColumn(name = "locationId") // TODO check this
-    private Location location;
+//    @OneToOne(fetch = FetchType.EAGER)
+//    @Column(name = "location")
+//    @JoinColumn(name = "locationId") // TODO check this
+//    private Location location;
 
     @Column(name = "openingHours")
     private String openingHours;
@@ -42,10 +42,6 @@ public class Place extends LiteAbstractEntity {
     @Column(name = "rank")
     @Enumerated(EnumType.STRING)
     private Rank rank;
-
-//    @Column(name = "review")
-//    @OneToMany
-//    private List<Review> review;
 
     /* --- Constructor --- */
 
@@ -78,13 +74,13 @@ public class Place extends LiteAbstractEntity {
         this.name = name;
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
+//    public Location getLocation() {
+//        return location;
+////    }
+////
+////    public void setLocation(Location location) {
+////        this.location = location;
+////    }
 
     public String getOpeningHours() {
         return openingHours;
