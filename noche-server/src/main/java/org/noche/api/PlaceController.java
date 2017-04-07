@@ -48,7 +48,7 @@ public class PlaceController {
 
     @RequestMapping(value = "/findByName", method = RequestMethod.GET)
     public void findPlaceByName(@RequestParam(value = "name") String name) {
-        Place place = placeService.findByPlaceName(name);
+        Place place = placeService.findByName(name);
         System.out.println(place.getName());
     }
 

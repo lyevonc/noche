@@ -9,5 +9,5 @@ public interface PlaceService {
 
     void savePlace(Place place);
 
-    Place findByPlaceName(String name);
+    Place findByName(String name);
 }

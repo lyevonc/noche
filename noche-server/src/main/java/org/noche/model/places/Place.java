@@ -54,6 +54,9 @@ public class Place extends LiteAbstractEntity {
         this.name = name;
     }
 
+    /* --- Public methods --- */
+
+
     /* --- Getters/Setters --- */
 
     public String getName() {

@@ -31,7 +31,7 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     @Override
-    public Place findByPlaceName(String name) {
+    public Place findByName(String name) {
         return placeRepository.findByName(name);
     }
 }
