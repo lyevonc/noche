@@ -5,6 +5,7 @@
 /noche-parent/.settings
 /noche-parent/.project
 /noche-parent/target
+/noche-common/target
 /noche-parent/out
 /noche-parent/noche-server/target
 /noche-parent/noche-server/.classpath
