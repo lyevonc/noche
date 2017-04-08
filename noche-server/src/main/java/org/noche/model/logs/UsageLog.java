@@ -22,7 +22,7 @@ public class UsageLog extends LiteAbstractEntity {
     private Date date;
 
     @Column(name = "location")
-    private String location;
+    private String location; // TODO maybe a JSON w/ information regarding all places
 
     /* --- Constructor --- */
 

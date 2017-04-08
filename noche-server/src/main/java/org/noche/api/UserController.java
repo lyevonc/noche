@@ -29,6 +29,7 @@ public class UserController {
 
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     public void createUser(@RequestBody UserInfo userInfo) {
+        // TODO get credentials
         userService.createUser(userInfo.getName(), userInfo.getEmail(), userInfo.getGender(), userInfo.getAge());
     }
 

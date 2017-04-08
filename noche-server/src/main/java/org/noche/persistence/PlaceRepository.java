@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * Created by Timi on 1/14/2017.
  */
+/*
 @Repository
 public interface PlaceRepository extends JpaRepository<Place, Integer> {
 
@@ -20,3 +21,4 @@ public interface PlaceRepository extends JpaRepository<Place, Integer> {
     @Query("SELECT p FROM Place p WHERE p.location.city = ?1")
     List<Place> findAllPlacesByCity(String city);
 }
+*/

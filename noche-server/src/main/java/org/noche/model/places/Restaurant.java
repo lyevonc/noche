@@ -1,16 +1,15 @@
 package org.noche.model.places;
 
-import org.noche.model.LiteAbstractEntity;
 import dto.RestaurantType;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 /**
  * Created by Timi on 4/5/2017.
  */
-public class Restaurant extends LiteAbstractEntity {
+@Entity(name = "Restaurant")
+@Table(name = "noche_restaurant")
+public class Restaurant extends Place {
 
     /* --- Members --- */
 
