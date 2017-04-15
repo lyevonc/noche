@@ -1,5 +1,6 @@
 package org.noche.service;
 
+import dto.Gender;
 import org.noche.model.users.User;
 
 /**
@@ -7,7 +8,7 @@ import org.noche.model.users.User;
  */
 public interface UserService {
 
-    void createUser(String name, String email);
+    void createUser(String name, String email, Gender gender, int age);
 
     User findByName(String name);
     User findByEmail(String email);

@@ -11,7 +11,7 @@ import javax.persistence.Table;
  */
 @Entity(name = "Club")
 @Table(name = "noche_club")
-public class Club extends LiteAbstractEntity {
+public class Club extends Place {
 
     /* --- Members --- */
 

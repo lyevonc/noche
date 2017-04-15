@@ -1,7 +1,6 @@
 package org.noche.model.places;
 
-import org.noche.model.LiteAbstractEntity;
-import org.noche.model.trends.Line;
+import dto.Line;
 
 import javax.persistence.*;
 
@@ -10,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity(name = "Bar")
 @Table(name = "noche_bar")
-public class Bar extends LiteAbstractEntity {
+public class Bar extends Place {
 
     /* --- Static members --- */
 

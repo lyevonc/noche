@@ -21,8 +21,8 @@ public class UsageLog extends LiteAbstractEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @Column
-    private String location;
+    @Column(name = "location")
+    private String location; // TODO maybe a JSON w/ information regarding all places
 
     /* --- Constructor --- */
 

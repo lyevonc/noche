@@ -1,5 +1,8 @@
 package org.noche.utils;
 
+import org.noche.service.impl.PlaceServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +25,8 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(basePackages = {"org.noche.persistence", "org.noche.model"})
 public class JpaConfiguration {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(PlaceServiceImpl.class);
+
     @Autowired
     DataSource dataSource;
 
@@ -34,9 +39,11 @@ public class JpaConfiguration {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
 
-        // this simple line is here instead of the persitance xml.
         factory.setPackagesToScan("org.noche.model");
 
+        if (dataSource == null) {
+            LOGGER.error("The dataSource is null");
+        }
         factory.setDataSource(dataSource);
         factory.afterPropertiesSet();
 

@@ -35,9 +35,10 @@ public class Location extends LiteAbstractEntity {
     public Location() {
     }
 
-    public Location(double lat, double lon) {
+    public Location(double lat, double lon, String city) {
         this.lat = lat;
         this.lon = lon;
+        this.city = city;
     }
 
     /* --- Public methods --- */
