@@ -17,6 +17,8 @@ public interface PlaceService {
 
     List<Bar> getAllPlaces();
 
+
+
 //    Place findByName(String name);
 //
 //    List<Place> findAllPlacesByLocation(Location location);
