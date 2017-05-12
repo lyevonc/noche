@@ -9,7 +9,8 @@ import javax.persistence.*;
  */
 @Entity(name = "Bar")
 @Table(name = "noche_bar")
-public class Bar extends Place {
+public class Bar extends Place
+{
 
     /* --- Static members --- */
 
