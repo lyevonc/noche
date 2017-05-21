@@ -2,10 +2,13 @@ package org.noche.service.impl;
 
 import dto.PlaceInfo;
 import org.noche.model.places.Bar;
+import org.noche.model.places.Club;
 import org.noche.model.places.Location;
 import org.noche.model.places.Place;
 import org.noche.persistence.BarRepository;
+import org.noche.persistence.ClubRepository;
 import org.noche.service.PlaceService;
+import org.omg.CORBA.PRIVATE_MEMBER;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,20 +37,32 @@ public class PlaceServiceImpl implements PlaceService {
 
     @Autowired
     private BarRepository barRepository;
-
+    @Autowired
+    private ClubRepository clubRepository;
     /* --- Overridden methods --- */
 
     @Override
     public void savePlace(Bar bar) {
         barRepository.save(bar);
     }
+   // @Override
+    public void saveClub(Club club)
+    {
+        clubRepository.save(club);
+    }
+    @Override
+    public void saveBar(Bar bar){barRepository.save(bar);}
 
     @Override
     @Transactional(readOnly = true)
     public List<Bar> getAllPlaces() {
         return barRepository.findAll();
     }
-
+    @Override
+    @Transactional(readOnly = true)
+    public List<Bar> getAllBars() {
+        return barRepository.findAll();
+    }
     //
 //    @Override
 //    @Transactional(readOnly = true)

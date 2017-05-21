@@ -4,6 +4,7 @@ import dto.Line;
 import dto.LocationInfo;
 import dto.PlaceInfo;
 import org.noche.model.places.Bar;
+import org.noche.model.places.Club;
 import org.noche.model.places.Place;
 import org.noche.service.PlaceService;
 import org.slf4j.Logger;
@@ -21,9 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by Timi on 1/14/2017.
- */
+
 @RestController
 public class PlaceController {
 
@@ -42,11 +41,27 @@ public class PlaceController {
 
     /* --- Public methods --- */
 
-    @RequestMapping(value = "/createPlace/{name}", method = RequestMethod.GET)
-    public void createPlace(@PathVariable(value = "name") String name2) {
-        Bar bar = new Bar(Line.HAPPY_HOUR);
+    @RequestMapping(value = "/createPlace/{kind}/{name}/", method = RequestMethod.GET)
+    public void createPlace(@PathVariable(value = "name") String name2,@PathVariable(value ="kind") String kind){
+
+        switch(kind)
+        {
+            case "Bar":
+            {
+                /*Bar temp= new Bar(name2);
+                placeService.saveBar(temp);
+            }
+            case "Club":
+            {
+                Club temp = new Club(name2,"roey cohen");
+                placeService.saveClub(temp);*/
+            }
+
+        }
+      /*  Bar bar = new Bar(Line.HAPPY_HOUR);
+
         bar.setName(name2);
-        placeService.savePlace(bar);
+        placeService.savePlace(temp);*/
 //        Bar place = new Place(name2);
 //        placeService.savePlace(place);
     }
@@ -82,5 +97,11 @@ public class PlaceController {
     public List<Bar> getAllPlaces() {
         return placeService.getAllPlaces();
     }
+
+    @RequestMapping(value = "/getAllBars", method = RequestMethod.GET)
+    public List<Bar> getAllBars() {
+        return placeService.getAllBars();
+    }
+
 
 }

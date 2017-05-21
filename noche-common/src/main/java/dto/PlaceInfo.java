@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Timi on 4/5/2017.
  */
-public class PlaceInfo implements Serializable {
+public class  PlaceInfo implements Serializable {
 
     /* --- Static members --- */
 

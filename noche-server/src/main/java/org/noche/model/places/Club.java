@@ -26,7 +26,11 @@ public class Club extends Place {
     public Club(String dj) {
         this.dj = dj;
     }
-
+    public Club(String clubName, String dj)
+    {
+        //super(clubName);
+        this.dj=dj;
+    }
     /* --- Getters/Setters --- */
 
     public String getDj() {

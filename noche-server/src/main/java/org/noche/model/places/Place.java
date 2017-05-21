@@ -35,8 +35,8 @@ public class Place {
     @Column(name = "openingHours")
     private String openingHours;
 
-    @Column(name = "url")
-    private String url;
+    @Column(name = "web")
+    private String web;
 
     @Column(name = "phone")
     private String phone;
@@ -45,17 +45,31 @@ public class Place {
     @Enumerated(EnumType.STRING)
     private Rank rank;
 
-//    @Column(name = "review")
-//    @OneToMany
-//    private List<Review> review;
+    @Column(name = "urlFront")
+    private String urlFront;
+
+    @Column(name ="urlInside")
+    private String urlInside;
+/*
+@Column(name = "review")
+@OneToMany
+private List<Review> review;
+*/
 
     /* --- Constructor --- */
 
     public Place() {
     }
 
-    public Place(String name) {
+    public Place(String name,Location loc ,String open,String web,String phone,Rank rank,String front,String inside) {
         this.name = name;
+        this.location = loc;
+        this.openingHours = open;
+        this.web = web;
+        this.phone = phone;
+        this.rank = rank;
+        this.urlFront = front;
+        this.urlInside = inside;
     }
 
     /* --- Public methods --- */
@@ -66,7 +80,7 @@ public class Place {
         info.setName(name);
         info.setOpeningHours(openingHours);
         info.setPhone(phone);
-        info.setUrl(url);
+        info.setUrl(web);
         return info;
     }
 
@@ -83,7 +97,7 @@ public class Place {
         if (name != null ? !name.equals(place.name) : place.name != null) return false;
         if (location != null ? !location.equals(place.location) : place.location != null) return false;
         if (openingHours != null ? !openingHours.equals(place.openingHours) : place.openingHours != null) return false;
-        if (url != null ? !url.equals(place.url) : place.url != null) return false;
+        if (web != null ? !web.equals(place.web) : place.web != null) return false;
         if (phone != null ? !phone.equals(place.phone) : place.phone != null) return false;
         return rank == place.rank;
 
@@ -95,7 +109,7 @@ public class Place {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (location != null ? location.hashCode() : 0);
         result = 31 * result + (openingHours != null ? openingHours.hashCode() : 0);
-        result = 31 * result + (url != null ? url.hashCode() : 0);
+        result = 31 * result + (web != null ? web.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (rank != null ? rank.hashCode() : 0);
         return result;
@@ -127,12 +141,12 @@ public class Place {
         this.openingHours = openingHours;
     }
 
-    public String getUrl() {
-        return url;
+    public String getWeb() {
+        return web;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setWeb(String web) {
+        this.web = web;
     }
 
     public String getPhone() {

@@ -1,6 +1,7 @@
 package org.noche.model.places;
 
 import dto.Line;
+import dto.Rank;
 
 import javax.persistence.*;
 
@@ -20,12 +21,16 @@ public class Bar extends Place
 
     @Column(name = "line")
     @Enumerated(EnumType.STRING)
-    private Line line;
+    private Line line;//TODO -ask what to do with this.
 
     /* --- Constructor --- */
 
     public Bar() {
     }
+public Bar(String name, Location loc , String open, String url, String phone, Rank rank){
+       super(name,loc,open,url,phone,rank,"wwww","llllll");
+       this.line=Line.HAPPY_HOUR;
+}
 
     public Bar(Line line) {
         this.line = line;
