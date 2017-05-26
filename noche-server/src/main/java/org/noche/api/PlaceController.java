@@ -3,8 +3,10 @@ package org.noche.api;
 import dto.Line;
 import dto.LocationInfo;
 import dto.PlaceInfo;
+import dto.Rank;
 import org.noche.model.places.Bar;
 import org.noche.model.places.Club;
+import org.noche.model.places.Location;
 import org.noche.model.places.Place;
 import org.noche.service.PlaceService;
 import org.slf4j.Logger;
@@ -40,14 +42,24 @@ public class PlaceController {
     private PlaceService placeService;
 
     /* --- Public methods --- */
+    @RequestMapping(value = "/liat", method = RequestMethod.GET)
+    public String check() {
+        return "CHECK";
+    }
+
+    @RequestMapping(value = "/liat2", method = RequestMethod.GET)
+    public void createBar() {
+        Location l = new Location(31.222, 32.1111, "bat yam");
+        placeService.saveLocation(l);
+        Bar b = new Bar("check", l, "21:00-00:00", "wwww.web.com", "050-481006", Rank.HOT);
+        placeService.saveBar(b);
+    }
 
     @RequestMapping(value = "/createPlace/{kind}/{name}/", method = RequestMethod.GET)
-    public void createPlace(@PathVariable(value = "name") String name2,@PathVariable(value ="kind") String kind){
+    public void createPlace(@PathVariable(value = "name") String name2, @PathVariable(value = "kind") String kind) {
 
-        switch(kind)
-        {
-            case "Bar":
-            {
+        switch (kind) {
+            case "Bar": {
                 /*Bar temp= new Bar(name2);
                 placeService.saveBar(temp);
             }
@@ -103,5 +115,9 @@ public class PlaceController {
         return placeService.getAllBars();
     }
 
+    @RequestMapping(value = "/getFrontUrlBars", method = RequestMethod.GET)
+    public List<String> getFrontUrlBars() {
+        return placeService.getAllBarsFrontUrl();
+    }
 
 }
