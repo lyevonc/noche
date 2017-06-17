@@ -42,8 +42,8 @@ public class Place {
     private String phone;
 
     @Column(name = "rank")
-    @Enumerated(EnumType.STRING)
-    private Rank rank;
+   // @Enumerated(EnumType.STRING)
+    private /*Rank*/float rank;
 
     @Column(name = "urlFront")
     private String urlFront;
@@ -61,7 +61,7 @@ private List<Review> review;
     public Place() {
     }
 
-    public Place(String name,Location loc ,String open,String web,String phone,Rank rank,String front,String inside) {
+    public Place(String name,Location loc ,String open,String web,String phone,/*Rank*/float rank,String front,String inside) {
         this.name = name;
         this.location = loc;
         this.openingHours = open;
@@ -111,7 +111,7 @@ private List<Review> review;
         result = 31 * result + (openingHours != null ? openingHours.hashCode() : 0);
         result = 31 * result + (web != null ? web.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (rank != null ? rank.hashCode() : 0);
+        //TODO//result = 31 * result + (rank != null ? rank.hashCode() : 0);
         return result;
     }
 
@@ -157,11 +157,26 @@ private List<Review> review;
         this.phone = phone;
     }
 
-    public Rank getRank() {
+    public double/*Rank*/ getRank() {
         return rank;
     }
 
-    public void setRank(Rank rank) {
+    public void setRank(float/*Rank*/ rank) {
         this.rank = rank;
+    }
+    public String getUrlFront() {
+        return urlFront;
+    }
+
+    public void setUrlFront(String urlFront) {
+        this.urlFront = urlFront;
+    }
+
+    public String getUrlInside() {
+        return urlInside;
+    }
+
+    public void setUrlInside(String urlInside) {
+        this.urlInside = urlInside;
     }
 }

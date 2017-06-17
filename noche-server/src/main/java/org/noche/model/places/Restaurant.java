@@ -1,5 +1,6 @@
 package org.noche.model.places;
 
+import dto.Rank;
 import dto.RestaurantType;
 
 import javax.persistence.*;
@@ -30,9 +31,15 @@ public class Restaurant extends Place {
         this.type = type;
         this.isKosher = isKosher;
     }
+    public Restaurant(String name, Location loc , String open, String web, String phone, /*Rank*/float rank,
+                      String front, String inside,RestaurantType type,boolean isKosher)
+    {
+        super(name,loc,open,web,phone,rank,front,inside);
+        this.type = type;
+        this.isKosher = isKosher;
+    }
 
     /* --- Getters/Setters --- */
-
     public RestaurantType getType() {
         return type;
     }

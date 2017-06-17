@@ -27,7 +27,7 @@ public class Bar extends Place
 
     public Bar() {
     }
-public Bar(String name, Location loc , String open, String url, String phone, Rank rank){
+public Bar(String name, Location loc , String open, String url, String phone, /*Rank*/float rank){
        super(name,loc,open,url,phone,rank,"wwww","llllll");
        this.line=Line.HAPPY_HOUR;
 }
