@@ -18,10 +18,14 @@ public interface PlaceService {
     void            saveRestaurant(Restaurant restaurant);
     List<Bar>       getAllPlaces();
     List<Bar>       getAllBars();
+    List<Restaurant> getAllRests();
+    List<Club>      getAllClubs();
     List <String>   getAllBarsFrontUrl();
-
-
-
+    List <String>   getAllRestFrontUrl();
+    List <String>   getAllClubsFrontUrl();
+    Bar findByName(String name);
+    List<String> getAllNames();
+    Location getLocationById(int id);
 
 //    Place findByName(String name);
 //

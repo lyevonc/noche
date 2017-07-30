@@ -1,10 +1,7 @@
 package org.noche.service.impl;
 
 import org.noche.model.places.*;
-import org.noche.persistence.BarRepository;
-import org.noche.persistence.ClubRepository;
-import org.noche.persistence.LocationRepository;
-import org.noche.persistence.RestaurantRepository;
+import org.noche.persistence.*;
 import org.noche.service.PlaceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,13 +34,14 @@ public class PlaceServiceImpl implements PlaceService {
     private LocationRepository locationRepository;
     @Autowired
     private RestaurantRepository restaurantRepository;
+
     /* --- Overridden methods --- */
 
     @Override
     public void savePlace(Bar bar) {
         barRepository.save(bar);
     }
-   // @Override
+    // @Override
     public void saveClub(Club club)
     {
         clubRepository.save(club);
@@ -61,8 +59,25 @@ public class PlaceServiceImpl implements PlaceService {
     public List<Bar> getAllBars() {
         return barRepository.findAll();
     }
+    @Override
+    @Transactional(readOnly = true)
+    public List<Restaurant> getAllRests() {
+        return restaurantRepository.findAll();
+    }
+    @Override
+    @Transactional(readOnly = true)
+
+    public List<Club> getAllClubs() {
+        return clubRepository.findAll();
+    }
     public List <String>   getAllBarsFrontUrl(){
-       return barRepository.getFrontUrlBars();
+        return barRepository.getFrontUrlBars();
+    }
+    public List <String>   getAllRestFrontUrl(){
+        return restaurantRepository.getFrontUrl();
+    }
+    public List <String>   getAllClubsFrontUrl(){
+        return clubRepository.getFrontUrlClubs();
     }
     @Override
     public void saveLocation(Location location)
@@ -74,8 +89,14 @@ public class PlaceServiceImpl implements PlaceService {
     {
         restaurantRepository.save(restaurant);
     }
+    @Override
+    public Bar findByName(String name)
+    {
+        return barRepository.findByName(name);
+    }
     //
-//    @Override
+
+    //    @Override
 //    @Transactional(readOnly = true)
 //    public Place findByName(String name) {
 //        return placeRepository.findByName(name);
@@ -92,4 +113,16 @@ public class PlaceServiceImpl implements PlaceService {
 //    public List<Place> findAllPlacesByCity(String city) {
 //        return placeRepository.findAllPlacesByCity(city);
 //    }
+    public List<String> getAllNames()
+    {
+        List<String> names = barRepository.getBarsNames();
+        names.addAll(clubRepository.getClubsNames());
+        names.addAll(restaurantRepository.getRestsNames());
+        return names;
+    }
+    public Location getLocationById(int id)
+    {
+        return locationRepository.findById(3);
+    }
+
 }

@@ -42,7 +42,7 @@ public class Place {
     private String phone;
 
     @Column(name = "rank")
-   // @Enumerated(EnumType.STRING)
+    // @Enumerated(EnumType.STRING)
     private /*Rank*/float rank;
 
     @Column(name = "urlFront")
@@ -50,8 +50,8 @@ public class Place {
 
     @Column(name ="urlInside")
     private String urlInside;
-/*
-@Column(name = "review")
+
+/*Column(name = "review")
 @OneToMany
 private List<Review> review;
 */
@@ -157,7 +157,7 @@ private List<Review> review;
         this.phone = phone;
     }
 
-    public double/*Rank*/ getRank() {
+    public float/*Rank*/ getRank() {
         return rank;
     }
 

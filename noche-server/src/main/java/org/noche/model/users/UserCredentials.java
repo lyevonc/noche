@@ -1,21 +1,35 @@
 package org.noche.model.users;
 
+import dto.LocationInfo;
 import org.noche.model.LiteAbstractEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+import dto.LocationInfo;
+import org.noche.model.LiteAbstractEntity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
- * Created by Timi on 4/7/2017.
+ * Created by Timi on 4/5/2017.
  */
-@Entity(name = "User")
-@Table(name = "noche_user_credentials")
+@Entity(name = "UserCredentials")
+@Table(name = "noche_user_credentials", uniqueConstraints = @UniqueConstraint(columnNames = {"userName", "password"}))
 public class UserCredentials extends LiteAbstractEntity {
+
+    /* --- Static members --- */
+
+    private static final long serialVersionUID = -214344520439449855L;
 
     /* --- Members --- */
 
-    @Column(name = "userName", unique = true)
+    @Column(name = "userName")
     private String userName;
 
     @Column(name = "password")
@@ -23,12 +37,14 @@ public class UserCredentials extends LiteAbstractEntity {
 
     /* --- Constructor --- */
 
-    public UserCredentials(){}
+    public UserCredentials() {
+    }
 
-    public UserCredentials(String userName, String password) {
+    public UserCredentials( String userName , String password) {
         this.userName = userName;
         this.password = password;
     }
+
 
     /* --- Getters/Setters --- */
 

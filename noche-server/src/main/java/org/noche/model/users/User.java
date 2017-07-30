@@ -5,6 +5,7 @@ import dto.UserInfo;
 import org.noche.model.LiteAbstractEntity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 /**
  * Created by Timi on 4/5/2017.
@@ -30,7 +31,10 @@ public class User extends LiteAbstractEntity {
 
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinColumn(name = "credentialsId")
-    private UserCredentials credentials;
+    private UserCredentials credentialsId;
+
+    @Column(name = "interests")
+    private ArrayList<String> interests;
 
     // TODO favorite places
 
@@ -92,10 +96,27 @@ public class User extends LiteAbstractEntity {
     }
 
     public UserCredentials getCredentials() {
-        return credentials;
+        return credentialsId;
     }
 
     public void setCredentials(UserCredentials credentials) {
-        this.credentials = credentials;
+        this.credentialsId = credentials;
+    }
+
+    public ArrayList<String> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(ArrayList<String> interests) {
+        this.interests = interests;
+    }
+    public void setInterests(String interests) {
+        ArrayList<String> interList = new ArrayList<String>();
+        String [] inter = interests.split(",");
+        for(int i= 0;i<inter.length;i++)
+        {
+            interList.add(inter[i]);
+        }
+        this.interests = interList;
     }
 }

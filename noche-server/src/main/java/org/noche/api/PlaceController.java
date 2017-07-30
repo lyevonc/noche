@@ -53,51 +53,54 @@ public class PlaceController {
 //        Bar place = new Place(name2);
 //        placeService.savePlace(place);
     }
+
     @RequestMapping(value = "/getAllPlaces", method = RequestMethod.GET)
     public List<Bar> getAllPlaces() {
         return placeService.getAllPlaces();
     }
 
     /* --- Test Sestion --- */
-@RequestMapping(value = "/getClosestPlaces")
-public double distance ()
-{
-Location user = new Location(32.028517, 34.747297,"bat yam");
-Location place =new Location(32.022664, 34.744241,"bat yam");
-    return new Distance().Calc(user,place);
-}
-    @RequestMapping(value = "/liat/{lat}/{lon}/"/*, method = RequestMethod.GET*/)
-    public double check(@PathVariable(value = "lat")double lat,@PathVariable(value = "lon")double lon,
-                        @PathVariable(value = "city")String city) {
-    Location temp = new Location(lat,lon,"bat yam");
-
- placeService.saveLocation(temp);
- System.out.println(temp);
-        return lat-lon;
+    @RequestMapping(value = "/getClosestPlaces")
+    public double distance() {
+        Location user = new Location(32.028517, 34.747297, "bat yam");
+        Location place = new Location(32.022664, 34.744241, "bat yam");
+        return new Distance().Calc(user, place);
     }
+
+    @RequestMapping(value = "/liat/{lat}/{lon}/"/*, method = RequestMethod.GET*/)
+    public double check(@PathVariable(value = "lat") double lat, @PathVariable(value = "lon") double lon,
+                        @PathVariable(value = "city") String city) {
+        Location temp = new Location(lat, lon, "bat yam");
+
+        placeService.saveLocation(temp);
+        System.out.println(temp);
+        return lat - lon;
+    }
+
     /* --- Bar Section -- */
     @RequestMapping(value = "/getAllBars", method = RequestMethod.GET)
     public List<Bar> getAllBars() {
         return placeService.getAllBars();
     }
+
     @RequestMapping(value = "/createBar", method = RequestMethod.GET)
     public void createBar() {
         Location l = new Location(31.222, 32.1111, "bat yam");
         placeService.saveLocation(l);
        /* Bar b = new Bar("check", l, "21:00-00:00", "wwww.web.com", "050-481006", Rank.HOT);*/
-       // placeService.saveBar(b);
+        // placeService.saveBar(b);
     }
-@RequestMapping(value = "createRest/{name}/{lat}/{lon}/{city}/{open}/{web}/{phone}/{rank}/{type}/{iskosher}/")
-    public void createRest(@PathVariable(value= "name")String name, @PathVariable(value = "lat") double lat,
-                           @PathVariable(value = "lon")double lon, @PathVariable(value = "open") String open,
-                           @PathVariable(value = "phone") String phone, @PathVariable(value = "web")String web,
-                           @PathVariable (value = "iskosher")boolean iskosher, @PathVariable (value ="city")String city,
-                           @PathVariable(value = "type")RestaurantType type,@PathVariable(value = "rank")float rank)
-    {
-    Location lo = new Location(lat,lon,city);
-    placeService.saveLocation(lo);
-        Restaurant save = new Restaurant(name,lo,open,web,phone,rank, null, null,type,iskosher);
-    placeService.saveRestaurant(save);
+
+    @RequestMapping(value = "createRest/{name}/{lat}/{lon}/{city}/{open}/{web}/{phone}/{rank}/{type}/{iskosher}/")
+    public void createRest(@PathVariable(value = "name") String name, @PathVariable(value = "lat") double lat,
+                           @PathVariable(value = "lon") double lon, @PathVariable(value = "open") String open,
+                           @PathVariable(value = "phone") String phone, @PathVariable(value = "web") String web,
+                           @PathVariable(value = "iskosher") boolean iskosher, @PathVariable(value = "city") String city,
+                           @PathVariable(value = "type") RestaurantType type, @PathVariable(value = "rank") float rank) {
+        Location lo = new Location(lat, lon, city);
+        placeService.saveLocation(lo);
+        Restaurant save = new Restaurant(name, lo, open, web, phone, rank, null, null, type, iskosher);
+        placeService.saveRestaurant(save);
     }
 
 
@@ -133,10 +136,32 @@ Location place =new Location(32.022664, 34.744241,"bat yam");
         return placeService.getAllBarsFrontUrl();
     }
 
+    @RequestMapping(value = "/getAllClubs")
+    public List<Club> getAllClubs() {
+        return placeService.getAllClubs();
+    }
+
+    @RequestMapping(value = "/getAllRests")
+    public List<Restaurant> getAllRests() {
+        return placeService.getAllRests();
+    }
+
     @RequestMapping(value = "/createClub")
-    public void createClub ()
-    {
+    public void createClub() {
         Club c = new Club();
         placeService.saveClub(c);
     }
+
+    /*@RequestMapping(value = "/findBar/")
+    public  Bar findBarByName()
+    {
+        Bae
+        return
+                placeService.findByName("kht,");
+}*/
+    @RequestMapping(value = "/getAllNames")
+    public List<String> getAllNames() {
+        return placeService.getAllNames();
+    }
+
 }

@@ -1,5 +1,6 @@
 package org.noche.model.places;
 
+import dto.MusicType;
 import org.noche.model.LiteAbstractEntity;
 
 import javax.persistence.Column;
@@ -15,29 +16,34 @@ public class Club extends Place {
 
     /* --- Members --- */
 
-    @Column(name = "dj")
-    private String dj;
+    @Column(name = "musicType")
+    private MusicType musicType;
+    @javax.inject.Inject
+    private Location location1;
 
     /* --- Constructor --- */
 
     public Club() {
     }
 
-    public Club(String dj) {
+    public MusicType getMusicType() {
+        return musicType;
+    }
+
+    public void setMusicType(MusicType musicType) {
+        this.musicType = musicType;
+    }
+/* public Club(String dj) {
         this.dj = dj;
-    }
-    public Club(String clubName, String dj)
-    {
-        //super(clubName);
-        this.dj=dj;
-    }
+    }*/
+
     /* --- Getters/Setters --- */
 
-    public String getDj() {
+   /* public String getDj() {
         return dj;
     }
 
     public void setDj(String dj) {
         this.dj = dj;
-    }
+    }*/
 }

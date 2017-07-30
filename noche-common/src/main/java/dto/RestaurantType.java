@@ -8,5 +8,8 @@ public enum RestaurantType {
     JAPANESE,
     ITALIAN,
     INDIA,
-    MEXICAN
+    MEXICAN,
+    MEDITERRANEAN,
+    MEAT,
+    DAIRY
 }
